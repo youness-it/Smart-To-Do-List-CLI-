@@ -33,8 +33,16 @@ def to_do_list():
                     print("Invalid task number.")
         elif choice == '4':
             print("Exiting the to-do list application.")
+            with open('report.txt', 'w') as report_file:
+                report_file.write("# To-Do List Report\n\n")
+                report_file.write("This file contains the results of the To-Do List.\n\n")
+                report_file.write("## Completed Tasks\n\n")
+                for task in taskes:
+                    report_file.write(f"- {task}\n")
+                report_file.write("\n## Pending Tasks\n\n")
+                # Add logic for pending tasks if needed
             break
         else:
             print("Invalid choice. Please try again.")
 if __name__ == "__main__":
-    to_do_list()    
+    to_do_list()
